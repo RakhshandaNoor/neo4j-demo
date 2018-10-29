@@ -1,13 +1,21 @@
 package com.stackroute.fullstackassignment.services;
 
 import com.stackroute.fullstackassignment.domain.FriendsList;
+import com.stackroute.fullstackassignment.repository.FriendsRepo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class FriendServiceImpl implements FriendService {
+
+    @Autowired
+    FriendsRepo friendsRepo;
     @Override
     public FriendsList addFriend(FriendsList friendsList) {
-        return null;
+        FriendsList friendsList1= friendsRepo.save(friendsList);
+        return friendsList1;
     }
 
     @Override
